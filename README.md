@@ -1,0 +1,2 @@
+# amplify-jamstack-app
+AmplifyでデプロイするJamstackアプリケーション
