@@ -1,0 +1,6 @@
+@use '../function/rem' as *;
+@use '../function/vw' as *;
+
+@mixin drop-shadow($color: #00004540) {
+  filter: drop-shadow(rem(1) rem(3) rem(3) #{$color})
+}

@@ -1,0 +1,26 @@
+@use '../font' as *;
+
+@mixin textStroke($text: "", $stroke, $color) {
+  position: relative;
+  display: inline-block;
+  font-weight: $f_bold;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: $text;
+  }
+
+  &::before {
+    -webkit-text-stroke: $stroke #{$color};
+    filter: blur(rem(0.1));
+  }
+
+  &::after {
+    color: currentColor;
+  }
+}

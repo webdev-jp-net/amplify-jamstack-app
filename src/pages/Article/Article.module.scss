@@ -1,0 +1,23 @@
+@use "style/_variable" as *;
+
+.list {
+  padding: 0 1rem;
+  margin: 1rem 0;
+}
+
+.line {
+  padding: 0.5rem 0;
+  list-style: none;
+
+  ~.line {
+      border-top: 1px solid $c_border;
+  }
+}
+
+.body {
+  margin: 0.5rem 0 0;
+}
+
+.figure {
+  margin: 0.5rem 0 0;
+}

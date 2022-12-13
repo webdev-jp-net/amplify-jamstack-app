@@ -1,0 +1,59 @@
+@use 'modern-css-reset';
+@use "_variable" as *;
+
+
+html {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  width: 100vw;
+  min-height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  font-size: vw(16); // 幅375pxのアートボードで16px相当
+  font-weight: $f_medium;
+  line-height: 1.5;
+  color: $c_dark;
+  background-color: $c_light;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // ダイアログの背後をスクロールさせない
+  &.isFixedScroll {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+// 汎用文字装飾
+a {
+  color: $c_link;
+  text-decoration: none;
+}
+
+.note {
+  font-weight: $f_regular;
+  color: $c_note;
+}
+
+// レイアウト
+[id='root'] {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100vh;
+
+  @supports (height: stretch) {
+    min-height: stretch; // iOS用
+  }
+}
