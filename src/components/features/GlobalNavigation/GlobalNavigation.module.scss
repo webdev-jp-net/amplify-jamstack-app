@@ -1,0 +1,68 @@
+@use "style/_variable" as *;
+
+.nav {
+  position: sticky;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  height: rem(90);
+  padding: 0 0 rem(36);
+  margin: auto 0 0;
+  background-color: $c_lightness;
+  box-shadow:  0 2px 0 0 $c_lightness,0 rem(-2) rem(8) $c_shadow;
+  transition: bottom $t_ease;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  flex-grow: 1;
+  width: 20%;
+  list-style: none;
+}
+
+.link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: rem(54);
+  font-size: rem(10);
+  text-decoration: none;
+
+
+  &::before {
+    @include rect(0, 2px);
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: block;
+    margin: 0 auto;
+    pointer-events: none;
+    content: '';
+    background: $c_current;
+    transition: width $t_ease;
+  }
+}
+
+.link.--current::before {
+  width: 100%;
+}
+
+.label {
+  color: $c_dark;
+  transition: color $t_ease;
+
+  .link.--current & {
+    color: $c_current;
+  }
+}
