@@ -128,9 +128,7 @@ const convertedArticleJson = contents => {
  * @desc _getDataがmicroCMSのAPIからcurlで取得したJSONをもとに、以下を実行します
  *
  * 1. 画像ダウンロードを実行するsh生成
- * 2. 施設情報のjsonを取扱いやすい形式に整形
- * 3. 施設リストに登場している都道府県のjsonを生成
- * 4. 各施設ごとの最寄り順リストを生成
+ * 2. 記事のjsonを取扱いやすい形式に整形
  */
 const initial = () => {
   const articleJson = getArticleJson('article.json');
@@ -145,7 +143,7 @@ const initial = () => {
 
   fs.writeFileSync('src/data/getMedia.sh', ['#!/bin/sh', getMedia].join('\n')); // shファイルとして保存
 
-  // 記事情報のjsonを取扱いやすい形式に整形
+  // 記事のjsonを取扱いやすい形式に整形
   const convertedContent = convertedArticleJson(articleJson);
   fs.writeFileSync('src/data/articleList.json', JSON.stringify(convertedContent)); // jsonファイルとして保存
 };
